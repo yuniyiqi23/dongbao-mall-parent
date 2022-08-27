@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dongbao-pay" />
+        <module name="dongbao-pay-api" />
+        <module name="dongbao-oms" />
+        <module name="dongbao-generator" />
+        <module name="dongbao-job" />
+        <module name="dongbao-cms-api" />
+        <module name="dongbao-common-base" />
+        <module name="dongbao-manager-web" />
+        <module name="dongbao-dictionary-api" />
+        <module name="dongbao-ums-api" />
+        <module name="dongbao-oms-api" />
+        <module name="dongbao-cart-api" />
+        <module name="dongbao-pms" />
+        <module name="dongbao-pms-api" />
+        <module name="dongbao-dictionary" />
+        <module name="dongbao-portal-web" />
+        <module name="dongbao-ums" />
+        <module name="dongbao-sms" />
+        <module name="dongbao-sms-api" />
+        <module name="dongbao-common-util" />
+        <module name="dongbao-cart" />
+        <module name="dongbao-cms" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dongbao-ums-api" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
