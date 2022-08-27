@@ -17,6 +17,7 @@
         <module>dongbao-oms-api</module>
         <module>dongbao-pay-api</module>
         <module>dongbao-sms-api</module>
+        <module>dongbao-ums-api</module>
     </modules>
 
     <artifactId>dongbao-api</artifactId>
