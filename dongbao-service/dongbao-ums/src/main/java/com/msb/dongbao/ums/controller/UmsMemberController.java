@@ -1,4 +1,4 @@
-package com.msb.dongbaoums.controller;
+package com.msb.dongbao.ums.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;

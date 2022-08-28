@@ -1,11 +1,9 @@
-import com.msb.dongbaoums.DongbaoUMSApplication;
-import com.msb.dongbaoums.entity.UmsMember;
-import com.msb.dongbaoums.mapper.UmsMemberMapper;
+import com.msb.dongbao.ums.DongbaoUMSApplication;
+import com.msb.dongbao.ums.entity.UmsMember;
+import com.msb.dongbao.ums.mapper.UmsMemberMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.time.LocalDateTime;
 
 @SpringBootTest(classes = DongbaoUMSApplication.class)
 public class UmsMemberMapperTest {

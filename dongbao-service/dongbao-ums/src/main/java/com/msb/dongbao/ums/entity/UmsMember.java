@@ -1,4 +1,4 @@
-package com.msb.dongbaoums.entity;
+package com.msb.dongbao.ums.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 

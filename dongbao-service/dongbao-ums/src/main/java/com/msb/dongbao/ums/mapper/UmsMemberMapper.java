@@ -1,6 +1,6 @@
-package com.msb.dongbaoums.mapper;
+package com.msb.dongbao.ums.mapper;
 
-import com.msb.dongbaoums.entity.UmsMember;
+import com.msb.dongbao.ums.entity.UmsMember;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 

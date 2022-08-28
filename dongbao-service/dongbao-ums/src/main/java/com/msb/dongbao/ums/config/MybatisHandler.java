@@ -1,4 +1,4 @@
-package com.msb.dongbaoums.config;
+package com.msb.dongbao.ums.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
