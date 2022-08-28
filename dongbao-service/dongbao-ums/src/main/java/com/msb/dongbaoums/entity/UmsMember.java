@@ -2,6 +2,7 @@ package com.msb.dongbaoums.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.Version;
@@ -59,7 +60,13 @@ public class UmsMember implements Serializable {
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)
-    private Date createTime;
+    private LocalDateTime gmtCreate;
+
+    /**
+     * 修改时间
+     */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime gmtModified;
 
     /**
      * 最后登录时间
