@@ -1,13 +1,16 @@
 package com.msb.dongbao.portal.web.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.msb.dongbao.ums.api.dto.UserParamDTO;
+import com.msb.dongbao.ums.api.service.UmsMemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user-member")
 public class UserController {
+
+    @Autowired
+    UmsMemberService umsMemberService;
 
     @GetMapping("/test")
     public String test(){
@@ -15,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(){
-        return "register";
+    public String register(@RequestBody UserParamDTO userParamDTO){
+        return umsMemberService.register(userParamDTO);
     }
 }

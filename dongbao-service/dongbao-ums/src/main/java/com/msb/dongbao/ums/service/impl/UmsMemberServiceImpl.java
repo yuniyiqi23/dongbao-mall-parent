@@ -1,9 +1,11 @@
 package com.msb.dongbao.ums.service.impl;
 
+import com.msb.dongbao.ums.api.dto.UserParamDTO;
 import com.msb.dongbao.ums.api.service.UmsMemberService;
 import com.msb.dongbao.ums.api.entity.UmsMember;
 import com.msb.dongbao.ums.mapper.UmsMemberMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,4 +19,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember> implements UmsMemberService {
 
+    @Autowired
+    UmsMemberMapper umsMemberMapper;
+
+    @Override
+    public String register(UserParamDTO userParamDTO) {
+        UmsMember umsMember = new UmsMember();
+        umsMember.setUsername(userParamDTO.getUsername());
+        umsMember.setEmail(userParamDTO.getEmail());
+        umsMember.setNickName(userParamDTO.getNickName());
+        umsMemberMapper.insert(umsMember);
+        return "success";
+    }
 }
