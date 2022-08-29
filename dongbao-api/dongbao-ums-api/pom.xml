@@ -7,9 +7,18 @@
         <groupId>com.msb</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <groupId>com.msb</groupId>
+    <artifactId>dongbao-ums-api</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dongbao-ums-api</artifactId>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.0.5</version>
+        </dependency>
+    </dependencies>
 
 </project>
