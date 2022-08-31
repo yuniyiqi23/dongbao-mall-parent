@@ -1,5 +1,5 @@
 import com.msb.dongbao.ums.DongbaoUMSApplication;
-import com.msb.dongbao.ums.api.entity.UmsMember;
+import com.msb.dongbao.ums.entity.UmsMember;
 import com.msb.dongbao.ums.mapper.UmsMemberMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

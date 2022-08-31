@@ -1,4 +1,4 @@
-package com.msb.dongbao.ums.api.dto;
+package com.msb.dongbao.ums.dto;
 
 import lombok.Data;
 import lombok.ToString;

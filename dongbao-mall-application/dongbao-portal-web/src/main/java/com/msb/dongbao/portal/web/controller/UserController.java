@@ -1,7 +1,7 @@
 package com.msb.dongbao.portal.web.controller;
 
-import com.msb.dongbao.ums.api.dto.UserParamDTO;
-import com.msb.dongbao.ums.api.service.UmsMemberService;
+import com.msb.dongbao.ums.dto.UserParamDTO;
+import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
