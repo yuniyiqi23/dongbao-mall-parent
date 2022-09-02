@@ -5,7 +5,11 @@ import com.msb.dongbao.ums.service.UmsMemberService;
 import com.msb.dongbao.ums.entity.UmsMember;
 import com.msb.dongbao.ums.mapper.UmsMemberMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.sun.deploy.util.ParameterUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,13 +25,15 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
 
     @Autowired
     UmsMemberMapper umsMemberMapper;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public String register(UserParamDTO userParamDTO) {
+        // 组织参数
         UmsMember umsMember = new UmsMember();
-        umsMember.setUsername(userParamDTO.getUsername());
-        umsMember.setEmail(userParamDTO.getEmail());
-        umsMember.setNickName(userParamDTO.getNickName());
+        BeanUtils.copyProperties(userParamDTO, umsMember);
+        umsMember.setPassword(passwordEncoder.encode(userParamDTO.getPassword()));
         umsMemberMapper.insert(umsMember);
         return "success";
     }
