@@ -1,5 +1,6 @@
 package com.msb.dongbao.ums.service.impl;
 
+import com.msb.dongbao.ums.dto.UserLoginDTO;
 import com.msb.dongbao.ums.dto.UserParamDTO;
 import com.msb.dongbao.ums.service.UmsMemberService;
 import com.msb.dongbao.ums.entity.UmsMember;
@@ -36,5 +37,17 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
         umsMember.setPassword(passwordEncoder.encode(userParamDTO.getPassword()));
         umsMemberMapper.insert(umsMember);
         return "success";
+    }
+
+    @Override
+    public String login(UserLoginDTO userLoginDTO) {
+        // 组织参数
+        UmsMember umsMember = umsMemberMapper.getUserInfoByCondtion(userLoginDTO.getUsername());
+        if (null != umsMember) {
+            // 校验密码
+            boolean matches = passwordEncoder.matches(userLoginDTO.getPassword(), umsMember.getPassword());
+            if (matches) return "success";
+        }
+        return "fail";
     }
 }

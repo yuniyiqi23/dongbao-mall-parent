@@ -2,4 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.msb.dongbao.ums.mapper.UmsMemberMapper">
 
+    <sql id="userMember">
+        post.post_id AS postId,
+        post.post_name AS postName,
+        org.org_id AS orgId,
+        org.org_name AS orgName,
+        org_post_relation.created_date AS createdStamp,
+        org_post_relation.updated_date AS lastUpdatedStamp
+    </sql>
+
+    <select id="getUserInfoByCondtion" parameterType="string" resultType="com.msb.dongbao.ums.entity.UmsMember">
+        SELECT
+        *
+        FROM
+        ums_member
+        <where>
+            <if test="username != null and username != ''">
+                AND username = #{username}
+            </if>
+        </where>
+    </select>
+
+
 </mapper>

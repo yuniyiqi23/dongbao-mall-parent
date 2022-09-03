@@ -1,5 +1,6 @@
 package com.msb.dongbao.portal.web.controller;
 
+import com.msb.dongbao.ums.dto.UserLoginDTO;
 import com.msb.dongbao.ums.dto.UserParamDTO;
 import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,4 +22,10 @@ public class UserController {
     public String register(@RequestBody UserParamDTO userParamDTO){
         return umsMemberService.register(userParamDTO);
     }
+
+    @PostMapping("/login")
+    public String login(@RequestBody UserLoginDTO userLoginDTO){
+        return umsMemberService.login(userLoginDTO);
+    }
+
 }
