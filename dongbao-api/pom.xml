@@ -22,5 +22,12 @@
 
     <artifactId>dongbao-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <artifactId>dongbao-common-base</artifactId>
+            <groupId>com.msb</groupId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

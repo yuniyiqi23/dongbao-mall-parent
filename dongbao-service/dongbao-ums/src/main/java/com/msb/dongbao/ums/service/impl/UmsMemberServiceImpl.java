@@ -1,5 +1,6 @@
 package com.msb.dongbao.ums.service.impl;
 
+import com.msb.dongbao.commom.base.response.ResponseWapper;
 import com.msb.dongbao.ums.dto.UserLoginDTO;
 import com.msb.dongbao.ums.dto.UserParamDTO;
 import com.msb.dongbao.ums.service.UmsMemberService;
@@ -30,24 +31,24 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
     PasswordEncoder passwordEncoder;
 
     @Override
-    public String register(UserParamDTO userParamDTO) {
+    public ResponseWapper register(UserParamDTO userParamDTO) {
         // 组织参数
         UmsMember umsMember = new UmsMember();
         BeanUtils.copyProperties(userParamDTO, umsMember);
         umsMember.setPassword(passwordEncoder.encode(userParamDTO.getPassword()));
         umsMemberMapper.insert(umsMember);
-        return "success";
+        return ResponseWapper.success();
     }
 
     @Override
-    public String login(UserLoginDTO userLoginDTO) {
+    public ResponseWapper login(UserLoginDTO userLoginDTO) {
         // 组织参数
         UmsMember umsMember = umsMemberMapper.getUserInfoByCondtion(userLoginDTO.getUsername());
         if (null != umsMember) {
             // 校验密码
             boolean matches = passwordEncoder.matches(userLoginDTO.getPassword(), umsMember.getPassword());
-            if (matches) return "success";
+            if (matches) return ResponseWapper.success();
         }
-        return "fail";
+        return ResponseWapper.fail();
     }
 }
