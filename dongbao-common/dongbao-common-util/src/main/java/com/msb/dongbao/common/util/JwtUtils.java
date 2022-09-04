@@ -1,0 +1,69 @@
+package com.msb.dongbao.common.util;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTCreator;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+
+public class JwtUtils {
+
+    // salt
+    private static final String SIGN = "12!@#$$";
+
+    private static final String JWT_key_phone = "phone";
+    private static final String JWT_key_identify = "identify";
+    private static final String JWT_key_token_type = "token_type";
+
+    /**
+     * 生成token
+     * @param phone
+     * @param identify
+     * @return
+     */
+    public static String generateToken(String phone, String identify, String tokenType) {
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put(JWT_key_phone, phone);
+        hashMap.put(JWT_key_identify, identify);
+        hashMap.put(JWT_key_token_type, tokenType);
+
+        // token过期时间
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, 1);
+        Date date = calendar.getTime();
+
+        JWTCreator.Builder builder = JWT.create();
+        hashMap.forEach((k,v) -> {
+            builder.withClaim(k, v);
+        });
+        builder.withExpiresAt(date);
+
+        // 生成token
+        String sign = builder.sign(Algorithm.HMAC256(SIGN));
+        return sign;
+    }
+
+    /**
+     * 解析token
+     * @param token
+     * @return
+     */
+    public static String parseToken(String token){
+        DecodedJWT verify = JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
+        String phone = verify.getClaim(JWT_key_phone).asString();
+        String identify = verify.getClaim(JWT_key_identify).asString();
+
+        return phone;
+    }
+
+    public static void main(String[] args) {
+        String token = generateToken("15112341234", "1","");
+        System.out.println(token);
+
+        System.out.println(parseToken(token));
+    }
+
+}

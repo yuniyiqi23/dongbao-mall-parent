@@ -1,8 +1,11 @@
 ### 计划
+3、JWT token
+- token 延期
+- result（ResponseWapper优化）
+- token 在拦截器里面校验
 
 ### 疑问
 1、插入数据异常如何处理（where，how）
-2、controller获取参数校验
 
 ### 已完成
 1、SpringBootTest
