@@ -3,6 +3,10 @@
 - token 延期
 - result（ResponseWapper优化）
 - token 在拦截器里面校验
+- token续期（1、第一次请求续期；2、双token）
+- 图片验证码
+4、注解、自定义异常
+
 
 ### 疑问
 1、插入数据异常如何处理（where，how）
