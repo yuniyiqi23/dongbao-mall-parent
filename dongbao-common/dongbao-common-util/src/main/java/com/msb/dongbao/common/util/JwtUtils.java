@@ -54,16 +54,12 @@ public class JwtUtils {
     public static String parseToken(String token){
         DecodedJWT verify = JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
         String phone = verify.getClaim(JWT_key_phone).asString();
-        String identify = verify.getClaim(JWT_key_identify).asString();
-
         return phone;
     }
 
     public static void main(String[] args) {
         String token = generateToken("15112341234", "1","");
         System.out.println(token);
-
-        System.out.println(parseToken(token));
     }
 
 }

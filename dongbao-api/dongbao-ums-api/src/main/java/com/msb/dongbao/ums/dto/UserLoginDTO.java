@@ -12,7 +12,7 @@ public class UserLoginDTO {
     private String username;
 
     @NotBlank
-    @Size(min = 8, max = 18, message = "密码长度在8-18之间")
+    @Size(min = 2, max = 18, message = "密码长度在8-18之间")
     private String password;
 
 }

@@ -1,5 +1,6 @@
 package com.msb.dongbao.portal.web.advice;
 
+import com.msb.dongbao.commom.base.exceptions.TokenException;
 import com.msb.dongbao.commom.base.response.ResponseWapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
@@ -42,6 +43,12 @@ public class GlobalExceptionHandler {
         });
 
         return ResponseWapper.fail(errorMsg.toString());
+    }
+
+    @ExceptionHandler(TokenException.class)
+    public ResponseWapper doHandleTokenException(TokenException e) {
+        log.error(e.getMessage(), e);
+        return ResponseWapper.fail(e.getMessage());
     }
 
     // 处理运行时异常
