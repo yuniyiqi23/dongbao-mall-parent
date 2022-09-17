@@ -15,16 +15,17 @@
     <groupId>com.msb</groupId>
     <artifactId>dongbao-mall-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
     <modules>
         <module>dongbao-api</module>
         <module>dongbao-mall-application</module>
-        <module>dongbao-api/dongbao-cms-api</module>
         <module>dongbao-common</module>
         <module>dongbao-service</module>
         <module>dongbao-job</module>
         <module>dongbao-generator</module>
     </modules>
-    <packaging>pom</packaging>
+
 
     <!--工具类的jar包-->
     <dependencies>

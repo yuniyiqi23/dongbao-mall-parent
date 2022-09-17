@@ -1,5 +1,6 @@
 package com.msb.dongbao.ums.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.msb.dongbao.commom.base.constants.IdentityConstant;
 import com.msb.dongbao.commom.base.constants.TokenTypeConstant;
 import com.msb.dongbao.commom.base.response.ResponseWapper;
@@ -7,14 +8,11 @@ import com.msb.dongbao.commom.base.response.TokenResponse;
 import com.msb.dongbao.common.util.JwtUtils;
 import com.msb.dongbao.ums.dto.UserLoginDTO;
 import com.msb.dongbao.ums.dto.UserParamDTO;
-import com.msb.dongbao.ums.service.UmsMemberService;
 import com.msb.dongbao.ums.entity.UmsMember;
 import com.msb.dongbao.ums.mapper.UmsMemberMapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.sun.deploy.util.ParameterUtil;
+import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

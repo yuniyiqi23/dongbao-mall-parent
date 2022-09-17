@@ -11,7 +11,7 @@ public class UmsMemberMapperTest {
     @Autowired
     UmsMemberMapper umsMemberMapper;
 
-    @Test
+//    @Test
 //	@Rollback
 //	@Transactional
     void testInsert() {
@@ -34,7 +34,7 @@ public class UmsMemberMapperTest {
     }
 
 
-    @Test
+//    @Test
     public void testUpdate() {
         UmsMember t = new UmsMember();
         t.setId(65L);
