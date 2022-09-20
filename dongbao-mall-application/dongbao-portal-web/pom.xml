@@ -2,18 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>dongbao-mall-application</artifactId>
         <groupId>com.msb</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.msb</groupId>
     <artifactId>dongbao-portal-web</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <modelVersion>4.0.0</modelVersion>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.msb</groupId>
             <artifactId>dongbao-ums-api</artifactId>
@@ -38,5 +41,82 @@
             <version>1.6.2</version>
         </dependency>
     </dependencies>
+
+    <!--<build>
+        <plugins>
+            &lt;!&ndash; 指定jdk版本，防止jdk构建版本变动 解决每次右键项目名-maven->update project 时候，项目jdk版本变了，变回1.5版本或者其他版本
+                解决使用maven编译其他问题：如提示不能在内部类访问外部非final局部变量 &ndash;&gt;
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            &lt;!&ndash; 为了后期集成jenkins等自动化平台，我们必须保证自己的脚本可以通过命令脚本来调动执行。 实现方式：集成maven的surefire插件,
+                Surefire插件用于Maven项目的test阶段，以执行单元测试。集成后我们就可以通过maven命令 maven test 来调动脚本执行了。 &ndash;&gt;
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    &lt;!&ndash; 设置参数&ndash;&gt;
+                    &lt;!&ndash;<systemPropertyVariables>
+                        <host>http://191.168.0.144:8001</host>
+                        <propertyName>${host}</propertyName>
+                    </systemPropertyVariables>&ndash;&gt;
+                    &lt;!&ndash;需要执行的xml&ndash;&gt;
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            &lt;!&ndash; maven 打依赖jar包 &ndash;&gt;
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.msb.dongbao.portal.web.PortalWebApplication</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <mainClass>com.msb.dongbao.portal.web.PortalWebApplication</mainClass>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>-->
 
 </project>

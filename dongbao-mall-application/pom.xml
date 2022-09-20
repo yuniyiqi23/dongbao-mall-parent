@@ -11,7 +11,6 @@
     </parent>
 
     <artifactId>dongbao-mall-application</artifactId>
-    <packaging>pom</packaging>
 
     <modules>
         <module>dongbao-manager-web</module>
