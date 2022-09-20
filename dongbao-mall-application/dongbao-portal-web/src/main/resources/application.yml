@@ -1,2 +1,27 @@
 server:
   port: 8001
+
+spring:
+  redis:
+    host: 120.26.4.95
+    port: 6379
+    database: 0
+
+kaptcha:
+  height: 50
+  width: 200
+  content:
+    length: 5
+    source: 1234567890
+    space: 2
+  font:
+    color: black
+    name: Arial
+    size: 40
+  background-color:
+    from: red
+    to: white
+  border:
+    enabled: true
+    color: black
+    thickness: 1
