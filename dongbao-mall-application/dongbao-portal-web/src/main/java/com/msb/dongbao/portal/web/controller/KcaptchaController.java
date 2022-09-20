@@ -1,6 +1,7 @@
 package com.msb.dongbao.portal.web.controller;
 
 import com.baomidou.kaptcha.Kaptcha;
+import com.msb.dongbao.commom.base.annotations.TokenCheck;
 import com.msb.dongbao.portal.web.custom.MyGoogleKaptcha;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,9 +36,8 @@ public class KcaptchaController {
 		return "不通过";
 	}
 
-
-
 	@GetMapping("/generator-my")
+	@TokenCheck(required = false)
 	public void generatorCodeMy(HttpServletRequest request, HttpServletResponse response) {
 		myGoogleKaptcha.render();
 	}

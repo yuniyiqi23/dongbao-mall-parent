@@ -19,6 +19,9 @@
 
     <properties>
         <lombok-version>1.18.16</lombok-version>
+        <java-version>1.8</java-version>
+        <JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home</JAVA_HOME>
+        <start-class>com.msb.dongbao.portal.web.PortalWebApplication</start-class>
     </properties>
 
     <modules>
@@ -65,5 +68,33 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <verbose />
+                        <bootclasspath>${JAVA_HOME}/jre/lib/rt.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>${start-class}</mainClass>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

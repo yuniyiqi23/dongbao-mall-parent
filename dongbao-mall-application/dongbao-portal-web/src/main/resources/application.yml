@@ -11,7 +11,7 @@ kaptcha:
   height: 50
   width: 200
   content:
-    length: 5
+    length: 4
     source: 1234567890
     space: 2
   font:
