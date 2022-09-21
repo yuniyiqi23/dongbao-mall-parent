@@ -80,7 +80,7 @@
                     <target>${java-version}</target>
                     <encoding>UTF-8</encoding>
                     <compilerArguments>
-                        <verbose />
+                        <verbose/>
                         <bootclasspath>${JAVA_HOME}/jre/lib/rt.jar</bootclasspath>
                     </compilerArguments>
                 </configuration>
