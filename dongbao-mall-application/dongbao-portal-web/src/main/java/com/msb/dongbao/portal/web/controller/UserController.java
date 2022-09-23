@@ -1,5 +1,6 @@
 package com.msb.dongbao.portal.web.controller;
 
+import com.msb.dongbao.commom.base.annotations.TokenCheck;
 import com.msb.dongbao.commom.base.response.ResponseWapper;
 import com.msb.dongbao.ums.dto.UserLoginDTO;
 import com.msb.dongbao.ums.dto.UserParamDTO;
@@ -16,16 +17,19 @@ public class UserController {
     UmsMemberService umsMemberService;
 
     @GetMapping("/test")
+    @TokenCheck
     public String test(){
         return "Hello PortalWebApplication";
     }
 
     @PostMapping("/register")
+    @TokenCheck(required = false)
     public ResponseWapper register(@RequestBody @Validated UserParamDTO userParamDTO){
         return umsMemberService.register(userParamDTO);
     }
 
     @PostMapping("/login")
+    @TokenCheck(required = false)
     public ResponseWapper login(@RequestBody @Validated UserLoginDTO userLoginDTO){
         return umsMemberService.login(userLoginDTO);
     }
