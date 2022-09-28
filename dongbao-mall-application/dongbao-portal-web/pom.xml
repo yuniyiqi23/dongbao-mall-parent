@@ -42,6 +42,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.ramostear</groupId>
             <artifactId>Happy-Captcha</artifactId>
             <version>1.0.1</version>

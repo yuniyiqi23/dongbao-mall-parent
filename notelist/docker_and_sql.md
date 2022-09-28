@@ -397,9 +397,12 @@ CREATE TABLE `ums_member` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `login_time` datetime DEFAULT NULL COMMENT '最后登录时间',
   `status` int(1) DEFAULT '1' COMMENT '帐号启用状态：0->禁用；1->启用',
+  `gmt_create` datetime DEFAULT NULL,
+  `gmt_modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `un_name` (`username`) USING BTREE COMMENT '用户名唯一'
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COMMENT='后台用户表';
+
 
 
 ```
